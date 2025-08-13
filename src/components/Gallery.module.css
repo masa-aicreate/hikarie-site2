@@ -1,0 +1,9 @@
+.strip { display: flex; overflow-x: auto; gap: 12px; padding: 8px 0; scroll-snap-type: x mandatory; }
+.thumbWrap { flex: 0 0 auto; width: 160px; height: 110px; border-radius: 12px; overflow: hidden; border: 1px solid #ffffff22; scroll-snap-align: start; }
+.thumb { width: 100%; height: 100%; object-fit: cover; cursor: pointer; display: block; }
+
+.modal { position: fixed; inset: 0; background: rgba(0,0,0,.72); display: grid; place-items: center; z-index: 80; }
+.modalImg { max-width: min(96vw, 1200px); max-height: 86vh; object-fit: contain; border-radius: 12px; }
+.controls { position: fixed; inset: 0; display: flex; align-items: center; justify-content: space-between; padding: 0 20px; }
+.ctrlBtn { background: #00000066; border: 1px solid #ffffff33; color: #fff; border-radius: 9999px; padding: 10px 14px; cursor: pointer; }
+.close { position: fixed; top: 12px; right: 12px; }

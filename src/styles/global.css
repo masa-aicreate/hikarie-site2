@@ -1,0 +1,36 @@
+@import './reset.css';
+@import './tokens.css';
+
+html { background: var(--color-bg); }
+body {
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  background: var(--color-bg);
+}
+
+/* 共通コンテナ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-pad-y); }
+
+/* アクセシビリティ: フォーカス */
+:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 3px; }
+
+/* 100dvh 対応の最低高（iOS Safari 考慮） */
+.min-h-screen { min-height: 100dvh; }
+
+/* ボタンの共通 */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  gap: 0.5rem; padding: 0.9rem 1.2rem; border-radius: var(--radius-xl);
+  background: #ffffff10; color: var(--color-fg); border: 1px solid #ffffff22;
+  text-decoration: none; transition: transform .15s ease, background .2s ease;
+}
+.btn:hover { transform: translateY(-2px); background: #ffffff18; }
+.btn:active { transform: translateY(0); }

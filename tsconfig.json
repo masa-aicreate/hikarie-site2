@@ -1,0 +1,8 @@
+// tsconfig.json（短いまま）
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}

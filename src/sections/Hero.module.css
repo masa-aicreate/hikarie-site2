@@ -1,0 +1,16 @@
+.wrap { position: relative; }
+.media {
+  position: relative; width: 100%; min-height: 70dvh; /* モバイル高 */
+  display: grid; place-items: center; overflow: hidden;
+}
+.video, .image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+
+.overlay { position: relative; z-index: 1; }
+.headline {
+  text-align: center; max-width: 900px; margin-inline: auto;
+  padding: 0 var(--gutter);
+}
+.h1 { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: .02em; }
+.sub { margin-top: 14px; color: var(--color-muted); }
+
+.ctaRow { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }

@@ -1,0 +1,7 @@
+.wrap { background: #000; }
+.h1 { font-size: var(--fs-h2); }
+.sub { color: var(--color-muted); margin-top: 8px; }
+.grid { display: grid; gap: 16px; margin-top: 20px; }
+.card { border: 1px solid #ffffff1a; background: #ffffff0d; border-radius: 20px; padding: 20px; }
+.label { color: var(--color-muted); font-size: 14px; }
+.value { margin-top: 6px; }

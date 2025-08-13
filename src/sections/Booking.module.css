@@ -1,0 +1,2 @@
+.wrap { background: #000; text-align: center; }
+.row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }

@@ -1,0 +1,11 @@
+.wrap { background: linear-gradient(to bottom, #000, #0b0b0b); }
+.grid { display: grid; gap: 20px; }
+.card { border: 1px solid #ffffff1a; background: #ffffff0d; border-radius: 20px; overflow: hidden; }
+.media { aspect-ratio: 16 / 9; background: linear-gradient(135deg, #232323, #313131); display: grid; place-items: center; color: #ffffff66; font-size: 13px; }
+.body { padding: 20px; }
+.title { font-weight: 600; }
+.text { color: var(--color-muted); margin-top: 6px; }
+
+@media (min-width: 768px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}

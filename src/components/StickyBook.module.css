@@ -1,0 +1,17 @@
+.btn {
+    position: fixed;
+    right: clamp(8px, 2vw, 20px);
+    bottom: clamp(72px, 12vh, 120px);
+    z-index: 60;
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 10px 14px; border-radius: 9999px;
+    background: #ffffff12; border: 1px solid #ffffff24; color: var(--color-fg);
+    backdrop-filter: blur(8px) saturate(1.2);
+    text-decoration: none; font-size: 14px;
+  }
+  .btn:hover { background: #ffffff18; }
+  .badge { font-size: 12px; opacity: .8; }
+  
+  @media (max-width: 767px) {
+    .btn { right: 10px; bottom: 14px; padding: 10px 12px; font-size: 13px; }
+  }
