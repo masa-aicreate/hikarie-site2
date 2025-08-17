@@ -1,16 +1,16 @@
-.wrap { position: relative; }
-.media {
-  position: relative; width: 100%; min-height: 70dvh; /* モバイル高 */
-  display: grid; place-items: center; overflow: hidden;
-}
-.video, .image { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* src/sections/Hero.module.css */
+.wrap { position: relative; min-height: 72dvh; display: grid; align-items: center; }
+.media { position: absolute; inset: 0; overflow: hidden; }
+.poster,
+.video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 
-.overlay { position: relative; z-index: 1; }
-.headline {
-  text-align: center; max-width: 900px; margin-inline: auto;
-  padding: 0 var(--gutter);
+.overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,.65), rgba(0,0,0,.35), rgba(0,0,0,0));
+  pointer-events: none;           /* ← スクロール阻害防止（超重要） */
 }
-.h1 { font-size: var(--fs-h1); line-height: 1.05; letter-spacing: .02em; }
-.sub { margin-top: 14px; color: var(--color-muted); }
 
-.ctaRow { margin-top: 28px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+.inner { position: relative; z-index: 1; max-width: 960px; padding: 40px 24px; }
+.title { font-size: clamp(32px,6vw,64px); line-height:1.05; font-weight: 800; }
+.sub { color: var(--color-muted); margin-top: 8px; max-width: 56ch; }
+.ctaRow { margin-top: 16px; display: flex; gap: 12px; flex-wrap: wrap; }

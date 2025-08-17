@@ -1,24 +1,70 @@
-import styles from './Header.module.css'
-import Container from './Container'
-import { Link } from 'react-router-dom'
-
-const BASE = import.meta.env.BASE_URL // GH Pages では "/hikarie-site2/" になる
+import { Link } from "react-router-dom";
+import { useLang } from "../i18n/LanguageProvider";
 
 export default function Header() {
+  const BASE = import.meta.env.BASE_URL;
+  const link = (hash: string) => `${BASE}${hash}`;
+  const { lang, toggleLang } = useLang();  // ← これが効いていないと変わりません
+
+  // 簡易ラベル（必要なら辞書に差し替え可）
+  const L = {
+    concept: lang === "en" ? "Concept" : "コンセプト",
+    rooms:   lang === "en" ? "Rooms"   : "お部屋",
+    access:  lang === "en" ? "Access"  : "アクセス",
+    booking: lang === "en" ? "Booking" : "予約",
+    company: lang === "en" ? "Company" : "会社概要",
+  };
+
   return (
-    <header className={styles.wrap}>
-      <Container>
-        <div className={styles.inner}>
-          <div className={styles.brand}><a className={styles.link} href={BASE}>HIKARIE</a></div>
-          <nav className={styles.nav} aria-label="Primary">
-            <a className={styles.link} href={`${BASE}#concept`}>Concept</a>
-            <a className={styles.link} href={`${BASE}#rooms`}>Rooms</a>
-            <a className={styles.link} href={`${BASE}#access`}>Access</a>
-            <a className={styles.link} href={`${BASE}#booking`}>Booking</a>
-            <Link className={styles.link} to="/company">Company</Link>
-          </nav>
-        </div>
-      </Container>
+    <header
+      style={{
+        position: 'relative',
+        padding: '16px 0',
+        background: '#222',
+        color: '#fff',
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 1200,
+          margin: '0 auto',
+          padding: '0 24px',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-between',
+          gap: 16,
+        }}
+      >
+        <a href={BASE} style={{ textDecoration: 'none', color: 'inherit', fontWeight: 800 }}>
+          HIKARIE
+        </a>
+
+        <nav style={{ display: 'flex', gap: 16 }}>
+          <a href={link('#concept')} style={{ textDecoration: 'none', color: 'inherit' }}>{L.concept}</a>
+          <a href={link('#rooms')}   style={{ textDecoration: 'none', color: 'inherit' }}>{L.rooms}</a>
+          <a href={link('#access')}  style={{ textDecoration: 'none', color: 'inherit' }}>{L.access}</a>
+          <a href={link('#booking')} style={{ textDecoration: 'none', color: 'inherit' }}>{L.booking}</a>
+          <Link to="/company" style={{ textDecoration: 'none', color: 'inherit' }}>{L.company}</Link>
+        </nav>
+
+        {/* ← nav の直後・同じ行に置く */}
+        <button
+          type="button"
+          onClick={toggleLang}
+          aria-label="Toggle language"
+          style={{
+            marginLeft: 12,
+            background: 'transparent',
+            color: 'inherit',
+            border: '1px solid #ffffff40',
+            borderRadius: 12,
+            padding: '6px 10px',
+            cursor: 'pointer',
+          }}
+        >
+          {lang === "en" ? "EN" : "JA"}
+        </button>
+      </div>
     </header>
-  )
+  );
 }
