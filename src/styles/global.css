@@ -31,6 +31,20 @@ a:hover { opacity: .85; }
 .section { padding: var(--section-pad-y) 0; }
 .container { max-width: var(--container-max); margin: 0 auto; padding: 0 var(--gutter); }
 
+/* alternate section theming: odd=dark (default), even=light */
+main > section {
+  background: var(--color-bg);
+  color: var(--color-fg);
+}
+main > section:nth-of-type(even) {
+  background: #f5f6f8; /* softer light gray to reduce glare */
+  color: #213547;
+  /* override color tokens within this section for consistent child styling */
+  --color-bg: #f5f6f8;
+  --color-fg: #213547;
+  --color-muted: #5f6a78;
+}
+
 /* buttons */
 .btn {
   display: inline-flex; align-items: center; justify-content: center;
