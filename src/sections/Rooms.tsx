@@ -2,10 +2,12 @@ import Container from '../components/Container'
 import styles from './Rooms.module.css'
 import Gallery from '../components/Gallery'
 import { useLang } from '../i18n/LanguageProvider'
+import { useState } from 'react'
 
 export default function Rooms() {
   const { lang } = useLang();
   const BASE = import.meta.env.BASE_URL; // devでは'/'、Pagesでは'/hikarie-site2/'など
+  const [mainOpen, setMainOpen] = useState(false);
 
   const imgs = [
     `${BASE}interior/01.jpg`,
@@ -46,7 +48,9 @@ export default function Rooms() {
         </p>
 
         <article className={styles.card} style={{ marginTop: 20 }}>
-          <div className={styles.media}>画像プレースホルダ</div>
+          <div className={styles.media} onClick={() => setMainOpen(true)}>
+            <img className={styles.mediaImg} src={imgs[0]} alt="メインルームの内装" loading="lazy" />
+          </div>
           <div className={styles.body}>
             <div className={styles.title}>{current.mainRoom}</div>
             <p className={styles.text}>{current.description}</p>
@@ -61,6 +65,12 @@ export default function Rooms() {
             </div>
           </div>
         </article>
+
+        {mainOpen && (
+          <div className={styles.lightbox} role="dialog" aria-modal="true" onClick={() => setMainOpen(false)}>
+            <img className={styles.lightboxImg} src={imgs[0]} alt="内装拡大プレビュー" onClick={e => e.stopPropagation()} />
+          </div>
+        )}
       </Container>
     </section>
   )
