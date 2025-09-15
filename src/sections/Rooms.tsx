@@ -5,14 +5,13 @@ import { useLang } from '../i18n/LanguageProvider'
 
 export default function Rooms() {
   const { lang } = useLang();
-  const BASE = import.meta.env.BASE_URL;/hikarie-site2/ // devでは'/'、Pagesでは'/hikarie-site2/'など
+  const BASE = import.meta.env.BASE_URL; // devでは'/'、Pagesでは'/hikarie-site2/'など
 
   const imgs = [
     `${BASE}interior/01.jpg`,
     `${BASE}interior/02.jpg`,
     `${BASE}interior/03.jpg`,
     `${BASE}interior/04.jpg`,
-    `${BASE}interior/05.jpg`,
   ]
 
   const content = {
